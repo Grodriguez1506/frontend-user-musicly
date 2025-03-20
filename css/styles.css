@@ -1,0 +1,574 @@
+@font-face {
+    font-family: "Musicly";
+    src: url(./fonts/WindSong-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Musicly";
+    src: url(./fonts/WindSong-Medium.ttf);
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url(./fonts/Poppins-Bold.ttf);
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url(./fonts/Poppins-Regular.ttf);
+}
+
+body {
+    background: #222 !important;
+    font-family: "Poppins" !important;
+}
+
+a {
+    cursor: pointer;
+}
+
+main {
+    min-height: 630px;
+}
+
+.nav-link:hover {
+    color: white !important;
+}
+
+.welcomeText {
+    display: block;
+    color: white;
+    margin-right: 5px;
+    text-transform: capitalize;
+}
+
+.separator {
+    width: 1px;
+    height: 25px;
+    margin: 0px 5px;
+    background-color: white;
+}
+
+.musiclyLogo {
+    font-family: "Musicly";
+    font-size: 60px;
+}
+
+#loginForm,
+#registerForm {
+    width: 60%;
+    height: auto;
+    background-color: #515151;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: stretch;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.form-floating>input:focus {
+    box-shadow: none;
+}
+
+.grid-menu {
+    width: 100%;
+    height: 630px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 10px;
+    padding: 5px;
+    border-radius: 15px;
+}
+
+.grid-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.grid-item>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    cursor: pointer;
+    transition: all 300ms;
+    will-change: transform;
+}
+
+.grid-item>img:hover {
+    transform: scale(1.2);
+}
+
+.grid-item>h1 {
+    position: absolute;
+    z-index: 1;
+    margin: 5px;
+    color: white;
+    text-shadow: 0px 0px 1px black,
+        0px 0px 2px black,
+        0px 0px 3px black,
+        0px 0px 4px black,
+        0px 0px 5px black;
+}
+
+.artists {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.songsList {
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.profile {
+    grid-row-start: 1;
+    grid-row-end: 4;
+}
+
+.followedArtist {
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+.sideInfoBar {
+    background-color: rgba(255, 255, 255, 0.107);
+    width: 250px;
+    min-height: 650px;
+    border-radius: 10px;
+    padding: 10px 0px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: start;
+    gap: 20px;
+}
+
+
+#profileCard {
+    background-color: #222;
+    color: white;
+    padding-top: 10px;
+}
+
+#profileCard>img {
+    background-color: white;
+    width: 150px;
+    margin: 0px auto;
+    padding: 2px;
+    border-radius: 10px;
+    transition: all 300ms;
+}
+
+#uploadForm {
+    margin: 0px auto;
+    margin-top: 10px;
+    padding: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 200ms;
+}
+
+#profileCard>img:hover+#uploadForm {
+    display: block;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.labelPicture {
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+#uploadForm:active {
+    transform: scale(0.93);
+}
+
+.username,
+.names {
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.playlistsAccordion {
+    border-radius: 10px !important;
+    overflow: hidden !important;
+}
+
+.accordion-item,
+.accordion-header,
+.accordion-button {
+    background-color: #222 !important;
+    color: white !important;
+    border: none !important;
+}
+
+.accordion-button:hover {
+    background-color: rgba(255, 255, 255, 0.452) !important;
+}
+
+.accordion-button:focus {
+    box-shadow: none !important;
+}
+
+.playAll {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.725);
+    font-size: 23px;
+    display: block;
+    text-align: center;
+    margin: 7px 0px;
+    transition: all 200ms;
+}
+
+.playAll:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.linkSong {
+    color: white;
+    text-decoration: none;
+}
+
+.linkSong:hover {
+    text-decoration: underline;
+}
+
+.musicPlayer {
+    border-radius: 15px;
+    width: 50%;
+    height: 620px;
+    margin: 0px auto;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.mainPlayer {
+    width: 80%;
+    height: 700px;
+    margin: 0px auto;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 20px;
+}
+
+.controlPanel {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 0px;
+    gap: 20px;
+}
+
+.likes {
+    flex-basis: 100%;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.677);
+}
+
+#like,
+#dislike,
+#addToPlaylist,
+#deleteFromPlaylist {
+    transition: all 300ms;
+}
+
+#like:active,
+#dislike:active,
+#addToPlaylist:active,
+#deleteFromPlaylist:active {
+    transform: scale(0.95);
+}
+
+#liked {
+    display: none;
+}
+
+.songImage {
+    border-radius: 15px;
+    width: 80%;
+    box-shadow: 0px 0px 15px rgb(8, 8, 8);
+    overflow: hidden;
+}
+
+.songImage>img {
+    width: 100%;
+    height: 100%;
+}
+
+.songTitle {
+    text-align: center;
+    color: white;
+    text-transform: capitalize;
+}
+
+.albumInfo {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.677);
+    text-transform: capitalize;
+}
+
+.searchSection {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: start;
+    gap: 20px;
+    box-sizing: border-box;
+    padding: 5px;
+    display: none;
+}
+
+.artistList {
+    width: 100%;
+    height: 120px;
+    box-sizing: border-box;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.107);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.artistPicture {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.artistPicture>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: white;
+    padding: 2px;
+}
+
+.artisticName {
+    width: 60%;
+    padding-left: 20px;
+    display: flex;
+}
+
+.artisticName>a {
+    text-decoration: none;
+    color: white;
+    font-size: 40px;
+    text-transform: capitalize;
+}
+
+.songsSection {
+    width: 100%;
+    min-height: 540px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.listOfSongs {
+    width: 100%;
+    height: 100%;
+    margin: 20px 0px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: start;
+    align-items: start;
+    gap: 20px;
+}
+
+.songCard {
+    width: 18rem;
+}
+
+.songCard>.card-header {
+    text-transform: capitalize;
+    text-decoration: none;
+}
+
+.songCard>.card-body>.card-title {
+    text-transform: capitalize;
+    margin-bottom: 20px;
+}
+
+.songDate {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 10px;
+    color: #a4a4a4;
+}
+
+.songsPagination {
+    width: 60%;
+    height: 40px;
+    font-size: 25px;
+    color: white;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.songsPagination>a {
+    color: white;
+    text-decoration: none;
+    border-radius: 50%;
+    line-height: 20px;
+    box-shadow: 2px 2px 2px rgba(255, 255, 255, 0.519) inset;
+}
+
+.disabled {
+    color: rgb(94, 94, 94) !important;
+    box-shadow: none !important;
+}
+
+.songsPagination>a:active {
+    box-shadow: -1px -1px 2px white inset,
+        2px 2px 3px black inset;
+}
+
+#playlistsForm>div {
+    width: 100%;
+    height: 65px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: start;
+}
+
+#addPlaylistForm,
+#newPlaylistForm,
+#deletePlaylistForm {
+    width: 60%;
+    height: 320px;
+    background-color: #515151;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: stretch;
+    border-radius: 10px;
+    padding: 2%;
+}
+
+.feedSection {
+    text-transform: capitalize;
+}
+
+.feedSection h3 {
+    font-weight: bold;
+}
+
+.feedSection a {
+    text-decoration: none;
+    font-size: 25px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.feedSection a:hover {
+    text-decoration: underline;
+}
+
+.albumSection {
+    width: 50%;
+    height: 700px;
+    margin: 0px auto;
+    overflow-y: auto;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+}
+
+.albumImage {
+    min-height: 350px;
+    max-height: 350px;
+    border-radius: 10px;
+}
+
+.albumImage>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.albumDescription{
+    color: #a4a4a4de;
+}
+
+.albumSection>ul {
+    width: 50%;
+    padding: 10px 0px;
+    list-style: none;
+}
+
+.albumSection>ul>li {
+    width: 100%;
+}
+
+.albumSection>ul>li>a {
+    display: block;
+    height: 40px;
+    text-align: center;
+    border-bottom: 1px solid #cccccca1;
+    color: white !important;
+    padding-bottom: 10px;
+    transition: all 300ms;
+}
+
+.albumSection>ul>li>a:hover {
+    background-color: #cccccc6d;
+    ;
+}
+
+.musicSection {
+    width: 50%;
+    height: 650px;
+    margin: 0px auto;
+    background-color: rebeccapurple;
+    overflow: auto;
+}
+
+#artistAccordion {
+    border-radius: 15px !important;
+}
+
+#artistAccordion .accordion-header{
+    border-radius: 15px !important;
+}
+
+.albumList>li>a,
+.musicsList > li > a {
+    text-decoration: none;
+}
+
+.albumList>li>a:hover,
+.musicsList > li > a:hover {
+    text-decoration: underline !important;
+}
+
+
