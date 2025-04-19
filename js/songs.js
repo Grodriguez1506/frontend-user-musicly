@@ -36,10 +36,10 @@ const refreshToken = async () => {
 
       return data.token;
     } else {
-      window.location.href = "/login.html";
+      window.location.href = "/user/login.html";
     }
   } catch (error) {
-    window.location.href = "/login.html";
+    window.location.href = "/user/login.html";
   }
 };
 
@@ -186,7 +186,7 @@ if (token) {
           linkProfile.innerHTML = artist.artisticName;
           linkProfile.addEventListener("click", () => {
             localStorage.setItem("artist", JSON.stringify(artist));
-            window.location.href = "/artist-profile.html";
+            window.location.href = "/user/artist-profile.html";
           });
           const addBtn = document.createElement("a");
           addBtn.classList.add("followArtist");
@@ -214,7 +214,7 @@ if (token) {
           searchSection.appendChild(artistList);
         });
       } catch (error) {
-        window.location.href = "/login.html";
+        window.location.href = "/user/login.html";
       }
     }
   };
@@ -283,7 +283,7 @@ if (token) {
           goListen.innerHTML = "Go to listen";
           goListen.addEventListener("click", () => {
             localStorage.setItem("song", JSON.stringify(song));
-            window.location.href = "/music-player.html";
+            window.location.href = "/user/music-player.html";
           });
 
           cardBody.appendChild(cardTitle);
@@ -341,7 +341,7 @@ if (token) {
         cardHeader.innerHTML = song.artist.artisticName;
         cardHeader.addEventListener("click", () => {
           localStorage.setItem("artist", JSON.stringify(song.artist));
-          window.location.href = "/artist-profile.html";
+          window.location.href = "/user/artist-profile.html";
         });
         const cardBody = document.createElement("div");
         cardBody.classList.add("card-body");
@@ -359,7 +359,7 @@ if (token) {
         goListen.innerHTML = "Go to listen";
         goListen.addEventListener("click", () => {
           localStorage.setItem("song", JSON.stringify(song));
-          window.location.href = "/music-player.html";
+          window.location.href = "/user/music-player.html";
         });
 
         cardBody.appendChild(cardTitle);
@@ -441,7 +441,7 @@ if (token) {
         goListen.innerHTML = "Go to listen";
         goListen.addEventListener("click", () => {
           localStorage.setItem("song", JSON.stringify(song));
-          window.location.href = "/music-player.html";
+          window.location.href = "/user/music-player.html";
         });
 
         cardBody.appendChild(cardTitle);
@@ -531,7 +531,7 @@ if (token) {
         goListen.innerHTML = "Go to listen";
         goListen.addEventListener("click", () => {
           localStorage.setItem("song", JSON.stringify(song));
-          window.location.href = "/music-player.html";
+          window.location.href = "/user/music-player.html";
         });
 
         cardBody.appendChild(cardTitle);
@@ -586,7 +586,7 @@ if (token) {
   previous.addEventListener("click", previousPage);
   next.addEventListener("click", nextPage);
 } else {
-  window.location.href = "/login.html";
+  window.location.href = "/user/login.html";
 }
 
 const logout = async () => {

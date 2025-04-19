@@ -29,10 +29,10 @@ const refreshToken = async () => {
 
       return data.token;
     } else {
-      window.location.href = "/login.html";
+      window.location.href = "/user/login.html";
     }
   } catch (error) {
-    window.location.href = "/login.html";
+    window.location.href = "/user/login.html";
   }
 };
 
@@ -163,7 +163,7 @@ if (token) {
           artistName.innerHTML = publication.artist.artisticName;
           artistName.addEventListener("click", () => {
             localStorage.setItem("artist", JSON.stringify(publication.artist));
-            window.location.href = "/artist-profile.html";
+            window.location.href = "/user/artist-profile.html";
           });
           const albumName = document.createElement("h3");
           albumName.classList.add("card-text");
@@ -198,7 +198,7 @@ if (token) {
           col4.classList.add("col-md-4");
           const songCover = document.createElement("img");
           songCover.classList.add("img-fluid", "rounded-start");
-          songCover.setAttribute("src", "../css/images/songImage.jpg");
+          songCover.setAttribute("src", "/user/css/images/songImage.jpg");
           const col8 = document.createElement("div");
           col8.classList.add("col-md-8");
           const cardBody = document.createElement("div");
@@ -206,9 +206,18 @@ if (token) {
           const artistName = document.createElement("a");
           artistName.classList.add("card-title");
           artistName.innerHTML = publication.artist.artisticName;
-          const songName = document.createElement("h3");
+          artistName.addEventListener("click", () => {
+            localStorage.setItem("artist", JSON.stringify(publication.artist));
+            window.location.href = "/user/artist-profile.html";
+          });
+          const songName = document.createElement("a");
+          songName.classList.add("feed-song-title");
           songName.classList.add("card-text");
           songName.innerHTML = publication.name;
+          songName.addEventListener("click", () => {
+            localStorage.setItem("song", JSON.stringify(publication));
+            window.location.href = "/user/music-player.html";
+          });
 
           const type = document.createElement("h5");
           type.classList.add("card-text");
@@ -303,7 +312,7 @@ if (token) {
           linkProfile.innerHTML = artist.artisticName;
           linkProfile.addEventListener("click", () => {
             localStorage.setItem("artist", JSON.stringify(artist));
-            window.location.href = "/artist-profile.html";
+            window.location.href = "/user/artist-profile.html";
           });
           const addBtn = document.createElement("a");
           addBtn.classList.add("followArtist");
@@ -332,7 +341,7 @@ if (token) {
           searchSection.appendChild(artistList);
         });
       } catch (error) {
-        window.location.href = "/login.html";
+        window.location.href = "/user/login.html";
       }
     }
   };
@@ -344,7 +353,7 @@ if (token) {
 
   populateFeed();
 } else {
-  window.location.href = "/login.html";
+  window.location.href = "/user/login.html";
 }
 
 const logout = async () => {
@@ -355,7 +364,7 @@ const logout = async () => {
     localStorage.removeItem("song");
     localStorage.removeItem("artist");
 
-    document.location.href = "/login.html";
+    document.location.href = "/user/login.html";
   } catch (error) {
     console.log(error);
   }

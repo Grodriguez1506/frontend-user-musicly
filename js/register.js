@@ -43,7 +43,7 @@ registerForm.addEventListener("submit", async (e) => {
       return (registerError.innerHTML = data.message);
     }
 
-    document.location.href = "/login.html";
+    document.location.href = "/user/login.html";
   } catch (error) {
     console.log(error);
   }

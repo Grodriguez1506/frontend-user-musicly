@@ -31,10 +31,10 @@ const refreshToken = async () => {
 
       return data.token;
     } else {
-      window.location.href = "/login.html";
+      window.location.href = "/user/login.html";
     }
   } catch (error) {
-    window.location.href = "/login.html";
+    window.location.href = "/user/login.html";
   }
 };
 
@@ -175,7 +175,7 @@ if (token) {
           linkProfile.innerHTML = artist.artisticName;
           linkProfile.addEventListener("click", () => {
             localStorage.setItem("artist", JSON.stringify(artist));
-            window.location.href = "/artist-profile.html";
+            window.location.href = "/user/artist-profile.html";
           });
           const addBtn = document.createElement("a");
           addBtn.classList.add("followArtist");
@@ -203,7 +203,7 @@ if (token) {
           searchSection.appendChild(artistList);
         });
       } catch (error) {
-        window.location.href = "/login.html";
+        window.location.href = "/user/login.html";
       }
     }
   };
@@ -218,8 +218,6 @@ if (token) {
 
     formData.append("name", name);
     formData.append("image", cover);
-
-    console.log(formData);
 
     try {
       let response = await fetch(`${API_URL}/playlist/save`, {
@@ -247,10 +245,12 @@ if (token) {
 
       if (data.status == "success") {
         formAlert.innerHTML = data.message;
+        formAlert.classList.remove("alert-danger");
         formAlert.classList.add("alert-success");
         formAlert.style.display = "block";
       } else {
         formAlert.innerHTML = data.message;
+        formAlert.classList.remove("alert-success");
         formAlert.classList.add("alert-danger");
         formAlert.style.display = "block";
       }
@@ -264,7 +264,7 @@ if (token) {
     search();
   });
 } else {
-  window.location.href = "/login.html";
+  window.location.href = "/user/login.html";
 }
 
 const logout = async () => {
@@ -275,7 +275,7 @@ const logout = async () => {
     localStorage.removeItem("song");
     localStorage.removeItem("artist");
 
-    document.location.href = "/login.html";
+    document.location.href = "/user/login.html";
   } catch (error) {
     console.log(error);
   }

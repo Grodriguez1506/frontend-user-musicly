@@ -29,10 +29,10 @@ const refreshToken = async () => {
 
       return data.token;
     } else {
-      window.location.href = "/login.html";
+      window.location.href = "/user/login.html";
     }
   } catch (error) {
-    window.location.href = "/login.html";
+    window.location.href = "/user/login.html";
   }
 };
 
@@ -216,7 +216,7 @@ if (token) {
           linkProfile.innerHTML = artist.artisticName;
           linkProfile.addEventListener("click", () => {
             localStorage.setItem("artist", JSON.stringify(artist));
-            window.location.href = "/artist-profile.html";
+            window.location.href = "/user/artist-profile.html";
           });
           const addBtn = document.createElement("a");
           addBtn.classList.add("followArtist");
@@ -244,7 +244,7 @@ if (token) {
           searchSection.appendChild(artistList);
         });
       } catch (error) {
-        window.location.href = "/login.html";
+        window.location.href = "/user/login.html";
       }
     }
   };
@@ -304,7 +304,7 @@ if (token) {
     search();
   });
 } else {
-  window.location.href = "/login.html";
+  window.location.href = "/user/login.html";
 }
 
 const logout = async () => {
@@ -315,7 +315,7 @@ const logout = async () => {
     localStorage.removeItem("song");
     localStorage.removeItem("artist");
 
-    document.location.href = "/login.html";
+    document.location.href = "/user/login.html";
   } catch (error) {
     console.log(error);
   }

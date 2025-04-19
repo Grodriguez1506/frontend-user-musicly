@@ -38,10 +38,10 @@ const refreshToken = async () => {
 
       return data.token;
     } else {
-      window.location.href = "/login.html";
+      window.location.href = "/user/login.html";
     }
   } catch (error) {
-    window.location.href = "/login.html";
+    window.location.href = "/user/login.html";
   }
 };
 
@@ -149,7 +149,7 @@ if (token) {
           linkSong.addEventListener("click", () => {
             console.log(song);
             localStorage.setItem("song", JSON.stringify(song));
-            window.location.href = "/music-player.html";
+            window.location.href = "/user/music-player.html";
           });
           list.appendChild(linkSong);
           albumSongs.appendChild(list);
@@ -196,7 +196,7 @@ if (token) {
           linkSong.innerHTML = song.name;
           linkSong.addEventListener("click", () => {
             localStorage.setItem("song", JSON.stringify(song));
-            window.location.href = "/music-player.html";
+            window.location.href = "/user/music-player.html";
           });
           list.appendChild(linkSong);
           musicsList.appendChild(list);
@@ -341,7 +341,7 @@ if (token) {
           linkProfile.innerHTML = artist.artisticName;
           linkProfile.addEventListener("click", () => {
             localStorage.setItem("artist", JSON.stringify(artist));
-            window.location.href = "/artist-profile.html";
+            window.location.href = "/user/artist-profile.html";
           });
           const addBtn = document.createElement("a");
           addBtn.classList.add("followArtist");
@@ -369,7 +369,7 @@ if (token) {
           searchSection.appendChild(artistList);
         });
       } catch (error) {
-        window.location.href = "/login.html";
+        window.location.href = "/user/login.html";
       }
     }
   };
@@ -383,7 +383,7 @@ if (token) {
   populateAlbums();
   populateSongs();
 } else {
-  document.location.href = "/login.html";
+  document.location.href = "/user/login.html";
 }
 
 const logout = async () => {
@@ -394,7 +394,7 @@ const logout = async () => {
     localStorage.removeItem("song");
     localStorage.removeItem("artist");
 
-    document.location.href = "/login.html";
+    document.location.href = "/user/login.html";
   } catch (error) {
     console.log(error);
   }

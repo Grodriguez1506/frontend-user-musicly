@@ -39,7 +39,7 @@ loginForm.addEventListener("submit", async (e) => {
 
     localStorage.setItem("access_token", data.token);
 
-    document.location.href = "/homepage.html";
+    document.location.href = "/user/homepage.html";
   } catch (error) {
     console.log(error);
   }

@@ -38,10 +38,10 @@ const refreshToken = async () => {
 
       return data.token;
     } else {
-      window.location.href = "/login.html";
+      window.location.href = "/user/login.html";
     }
   } catch (error) {
-    window.location.href = "/login.html";
+    window.location.href = "/user/login.html";
   }
 };
 
@@ -177,7 +177,7 @@ if (token) {
 
       return URL.createObjectURL(blob);
     } catch (error) {
-      window.location.href = "/login.html";
+      window.location.href = "/user/login.html";
     }
   };
 
@@ -343,7 +343,7 @@ if (token) {
       sideInfoBar.append(playlistsContainer);
     } catch (error) {
       console.log(error);
-      // window.location.href = "/login.html";
+      // window.location.href = "/user/login.html";
     }
   };
 
@@ -453,7 +453,7 @@ if (token) {
           linkProfile.innerHTML = artist.artisticName;
           linkProfile.addEventListener("click", () => {
             localStorage.setItem("artist", JSON.stringify(artist));
-            window.location.href = "/artist-profile.html";
+            window.location.href = "/user/artist-profile.html";
           });
           const addBtn = document.createElement("a");
           addBtn.classList.add("followArtist");
@@ -481,7 +481,7 @@ if (token) {
           searchSection.appendChild(artistList);
         });
       } catch (error) {
-        window.location.href = "/login.html";
+        window.location.href = "/user/login.html";
       }
     }
   };
@@ -504,14 +504,14 @@ if (token) {
   });
 
   newPlaylist.addEventListener("click", () => {
-    window.location.href = "/create-playlist.html";
+    window.location.href = "/user/create-playlist.html";
   });
 
   populatePersonalInfo();
 
   populatePlaylists();
 } else {
-  document.location.href = "/login.html";
+  document.location.href = "/user/login.html";
 }
 
 const logout = async () => {
@@ -522,7 +522,7 @@ const logout = async () => {
     localStorage.removeItem("song");
     localStorage.removeItem("artist");
 
-    document.location.href = "/login.html";
+    document.location.href = "/user/login.html";
   } catch (error) {
     console.log(error);
   }

@@ -480,15 +480,22 @@ input[type="file"] {
     font-weight: bold;
 }
 
-.feedSection a {
+.feedSection a{
     text-decoration: none;
     font-size: 25px;
     display: block;
     margin-bottom: 10px;
 }
 
+
 .feedSection a:hover {
     text-decoration: underline;
+}
+
+.feed-song-title{
+    color: inherit;
+    font-size: calc(1.3rem + .6vw);
+    font-weight: bold;
 }
 
 .albumSection {

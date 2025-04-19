@@ -31,10 +31,10 @@ const refreshToken = async () => {
 
       return data.token;
     } else {
-      window.location.href = "/login.html";
+      window.location.href = "/user/login.html";
     }
   } catch (error) {
-    window.location.href = "/login.html";
+    window.location.href = "/user/login.html";
   }
 };
 
@@ -65,7 +65,7 @@ if (token) {
       const data = await response.json();
       return data.user;
     } catch (error) {
-      document.location.href = "/login.html";
+      document.location.href = "/user/login.html";
     }
   };
 
@@ -170,10 +170,10 @@ if (token) {
         errorAlert.style.display = "block";
         errorAlert.innerHTML = data.message;
       } else {
-        window.location.href = "/feed.html";
+        window.location.href = "/user/feed.html";
       }
     } catch (error) {
-      document.location.href = "/login.html";
+      document.location.href = "/user/login.html";
     }
   };
 
@@ -245,7 +245,7 @@ if (token) {
           linkProfile.innerHTML = artist.artisticName;
           linkProfile.addEventListener("click", () => {
             localStorage.setItem("artist", JSON.stringify(artist));
-            window.location.href = "/artist-profile.html";
+            window.location.href = "/user/artist-profile.html";
           });
           const addBtn = document.createElement("a");
           addBtn.classList.add("followArtist");
@@ -273,7 +273,7 @@ if (token) {
           searchSection.appendChild(artistList);
         });
       } catch (error) {
-        window.location.href = "/login.html";
+        window.location.href = "/user/login.html";
       }
     }
   };
@@ -284,14 +284,14 @@ if (token) {
     const user = await getPersonalData();
 
     localStorage.setItem("user", JSON.stringify(user));
-    window.location.href = "/artists.html";
+    window.location.href = "/user/artists.html";
   });
 
   songsList.addEventListener("click", async () => {
     const user = await getPersonalData();
 
     localStorage.setItem("user", JSON.stringify(user));
-    window.location.href = "/songs.html";
+    window.location.href = "/user/songs.html";
   });
 
   profile.addEventListener("click", async () => {
@@ -310,7 +310,7 @@ if (token) {
     search();
   });
 } else {
-  document.location.href = "/login.html";
+  document.location.href = "/user/login.html";
 }
 
 const logout = async () => {
@@ -321,7 +321,7 @@ const logout = async () => {
     localStorage.removeItem("song");
     localStorage.removeItem("artist");
 
-    document.location.href = "/login.html";
+    document.location.href = "/user/login.html";
   } catch (error) {
     console.log(error);
   }
